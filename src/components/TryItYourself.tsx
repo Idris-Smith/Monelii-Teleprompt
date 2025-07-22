@@ -168,7 +168,7 @@ export default function TryItYourself(): ReactElement {
                   transform: 'rotateX(10deg)',
                 }}
               >
-                {script || 'Your script will appear here...'}
+                <div
                   className="p-8 whitespace-pre-wrap"
                   style={{
                     fontFamily,
