@@ -86,12 +86,14 @@ const systems = [
 
 export default function Systems(): ReactElement {
   return (
-    <section id="systems" className="py-24 bg-gray-50">
+    <section id="systems" className="py-24 bg-gray-50" role="main" aria-labelledby="systems-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-16">Our Systems</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <h2 id="systems-heading" className="text-4xl font-bold text-center mb-16">Professional Teleprompter Systems for Every Need</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8" role="list">
           {systems.map((system, index) => (
-            <SystemCard key={index} {...system} />
+            <div key={index} role="listitem">
+              <SystemCard {...system} />
+            </div>
           ))}
         </div>
       </div>

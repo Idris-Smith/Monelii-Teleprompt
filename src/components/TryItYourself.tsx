@@ -51,30 +51,35 @@ export default function TryItYourself(): ReactElement {
   };
 
   return (
-    <section id="demo" className="py-24 bg-gray-900">
+    <section id="demo" className="py-24 bg-gray-900" role="region" aria-labelledby="demo-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center text-white mb-16">Try It Yourself</h2>
+        <h2 id="demo-heading" className="text-4xl font-bold text-center text-white mb-16">Try Our Teleprompter Demo</h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Controls Panel */}
-          <div className="bg-gray-800 rounded-xl p-6 space-y-6">
+          <div className="bg-gray-800 rounded-xl p-6 space-y-6" role="form" aria-label="Teleprompter controls">
             <div>
-              <label className="block text-white mb-2">Your Script</label>
+              <label htmlFor="script-input" className="block text-white mb-2">Your Script</label>
               <textarea
+                id="script-input"
                 value={script}
                 onChange={(e) => setScript(e.target.value)}
                 className="w-full h-48 p-4 bg-gray-700 text-white rounded-lg focus:ring-2 focus:ring-blue-500"
                 placeholder="Type or paste your script here..."
+                aria-describedby="script-help"
               />
+              <p id="script-help" className="sr-only">Enter your script text to see it displayed in the teleprompter preview</p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-white mb-2">Font</label>
+                <label htmlFor="font-select" className="block text-white mb-2">Font</label>
                 <select
+                  id="font-select"
                   value={fontFamily}
                   onChange={(e) => setFontFamily(e.target.value)}
                   className="w-full p-2 bg-gray-700 text-white rounded-lg"
+                  aria-label="Select font family for teleprompter text"
                 >
                   {fonts.map(font => (
                     <option key={font} value={font}>{font}</option>
@@ -83,19 +88,22 @@ export default function TryItYourself(): ReactElement {
               </div>
               
               <div>
-                <label className="block text-white mb-2">Text Color</label>
+                <label htmlFor="color-input" className="block text-white mb-2">Text Color</label>
                 <input
+                  id="color-input"
                   type="color"
                   value={textColor}
                   onChange={(e) => setTextColor(e.target.value)}
                   className="w-full h-10 bg-gray-700 rounded-lg cursor-pointer"
+                  aria-label="Select text color for teleprompter"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-white mb-2">Speed: {speed.toFixed(1)}x</label>
+              <label htmlFor="speed-slider" className="block text-white mb-2">Speed: {speed.toFixed(1)}x</label>
               <input
+                id="speed-slider"
                 type="range"
                 min="-10"
                 max="10"
@@ -103,18 +111,21 @@ export default function TryItYourself(): ReactElement {
                 value={speed}
                 onChange={(e) => setSpeed(Number(e.target.value))}
                 className="w-full"
+                aria-label="Adjust teleprompter scrolling speed"
               />
             </div>
 
             <div>
-              <label className="block text-white mb-2">Font Size: {fontSize}px</label>
+              <label htmlFor="fontsize-slider" className="block text-white mb-2">Font Size: {fontSize}px</label>
               <input
+                id="fontsize-slider"
                 type="range"
                 min="16"
                 max="72"
                 value={fontSize}
                 onChange={(e) => setFontSize(Number(e.target.value))}
                 className="w-full"
+                aria-label="Adjust teleprompter font size"
               />
             </div>
 
@@ -122,30 +133,33 @@ export default function TryItYourself(): ReactElement {
               <button
                 onClick={togglePlay}
                 className="flex-1 flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                aria-label={isPlaying ? 'Pause teleprompter' : 'Play teleprompter'}
               >
-                {isPlaying ? <Pause className="mr-2" /> : <Play className="mr-2" />}
+                {isPlaying ? <Pause className="mr-2" aria-hidden="true" /> : <Play className="mr-2" aria-hidden="true" />}
                 {isPlaying ? 'Pause' : 'Play'}
               </button>
               
               <button
                 onClick={resetPrompter}
                 className="flex items-center justify-center px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600"
+                aria-label="Reset teleprompter to beginning"
               >
-                <RotateCcw />
+                <RotateCcw aria-hidden="true" />
               </button>
               
               <button
                 onClick={clearAll}
                 className="flex items-center justify-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+                aria-label="Clear all teleprompter content"
               >
-                <Type />
+                <Type aria-hidden="true" />
               </button>
             </div>
           </div>
 
           {/* Preview Panel */}
-          <div className="bg-gray-800 rounded-xl p-6">
-            <div className="relative h-[500px] overflow-hidden rounded-lg bg-black">
+          <div className="bg-gray-800 rounded-xl p-6" role="region" aria-label="Teleprompter preview">
+            <div className="relative h-[500px] overflow-hidden rounded-lg bg-black" aria-live="polite">
               <div
                 ref={prompterRef}
                 className="absolute inset-0 overflow-auto hide-scrollbar"
@@ -154,7 +168,7 @@ export default function TryItYourself(): ReactElement {
                   transform: 'rotateX(10deg)',
                 }}
               >
-                <div
+                {script || 'Your script will appear here...'}
                   className="p-8 whitespace-pre-wrap"
                   style={{
                     fontFamily,

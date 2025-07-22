@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://teleprompter.co.za/sitemap.xml
+
+# Specific crawling instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block access to admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Allow all image crawling
+User-agent: Googlebot-Image
+Allow: /

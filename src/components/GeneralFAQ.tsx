@@ -36,24 +36,28 @@ export default function GeneralFAQ(): ReactElement {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 bg-gray-100">
+    <section id="faq" className="py-24 bg-gray-100" role="region" aria-labelledby="faq-heading" itemScope itemType="https://schema.org/FAQPage">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-16">General FAQs</h2>
+        <h2 id="faq-heading" className="text-4xl font-bold text-center mb-16">Teleprompter Frequently Asked Questions</h2>
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="border-b border-gray-200 pb-6 last:border-b-0 last:pb-0">
+              <div key={index} className="border-b border-gray-200 pb-6 last:border-b-0 last:pb-0" itemScope itemType="https://schema.org/Question">
                 <button
                   className="w-full flex justify-between items-center text-left"
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  aria-expanded={expandedFaq === index}
+                  aria-controls={`faq-answer-${index}`}
                 >
-                  <span className="font-medium text-gray-900">{faq.question}</span>
+                  <span className="font-medium text-gray-900" itemProp="name">{faq.question}</span>
                   <Plus className={`h-5 w-5 transform transition-transform ${
                     expandedFaq === index ? 'rotate-45' : ''
-                  }`} />
+                  }`} aria-hidden="true" />
                 </button>
                 {expandedFaq === index && (
-                  <p className="mt-4 text-gray-600">{faq.answer}</p>
+                  <div id={`faq-answer-${index}`} itemScope itemType="https://schema.org/Answer">
+                    <p className="mt-4 text-gray-600" itemProp="text">{faq.answer}</p>
+                  </div>
                 )}
               </div>
             ))}
