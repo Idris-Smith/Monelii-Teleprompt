@@ -16,11 +16,11 @@ interface SystemCardProps {
 export default function SystemCard({ title, description, imageUrl, bestFor, faqs }: SystemCardProps): ReactElement {
   return (
     <article className="bg-white rounded-2xl shadow-xl overflow-hidden transition-transform hover:scale-[1.02]" itemScope itemType="https://schema.org/Service">
-      <div className="aspect-auto relative overflow-hidden">
+      <div className="relative overflow-hidden bg-gray-100" style={{ height: '400px' }}>
         <img
           src={imageUrl}
           alt={`${title} - Professional teleprompter system for ${bestFor.toLowerCase()}`}
-          className="w-full h-full object-contain"
+          className="w-full h-full object-cover"
           itemProp="image"
           loading="lazy"
         />

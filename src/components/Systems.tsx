@@ -45,7 +45,7 @@ const systems = [
   {
     title: 'Presidential System',
     description: 'Dual glass panels for a polished and professional speaking setup.',
-    imageUrl: 'https://i.ibb.co/RcMknNx/Untitled-design.png',
+    imageUrl: '/WhatsApp Image 2025-11-24 at 15.51.40_f0904213.jpg',
     bestFor: 'Best for formal stage events',
     faqs: [
       {
@@ -89,7 +89,7 @@ export default function Systems(): ReactElement {
     <section id="systems" className="py-24 bg-gray-50" role="main" aria-labelledby="systems-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 id="systems-heading" className="text-4xl font-bold text-center mb-16">Professional Teleprompter Systems for Every Need</h2>
-        <div className="grid grid-cols-1 gap-8" role="list">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto" role="list">
           {systems.map((system, index) => (
             <div key={index} role="listitem">
               <SystemCard {...system} />
