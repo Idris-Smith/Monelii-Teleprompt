@@ -25,7 +25,7 @@ const systems = [
   {
     title: 'On-Board System',
     description: 'Compact design where the camera mounts directly on to the prompter.',
-    imageUrl: 'https://i.ibb.co/k1C9Zhp/IMG-4221.jpg',
+    imageUrl: '/WhatsApp Image 2025-11-24 at 15.54.50_d08eb066.jpg',
     bestFor: 'On-the-go video productions',
     faqs: [
       {
@@ -89,7 +89,7 @@ export default function Systems(): ReactElement {
     <section id="systems" className="py-24 bg-gray-50" role="main" aria-labelledby="systems-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 id="systems-heading" className="text-4xl font-bold text-center mb-16">Professional Teleprompter Systems for Every Need</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8" role="list">
+        <div className="grid grid-cols-1 gap-8" role="list">
           {systems.map((system, index) => (
             <div key={index} role="listitem">
               <SystemCard {...system} />
