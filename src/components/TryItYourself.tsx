@@ -1,10 +1,10 @@
 import { type ReactElement, useState, useRef, useEffect } from 'react';
-import { Play, Pause, RotateCcw, Type } from 'lucide-react';
+import { Play, Pause, RotateCcw, Trash2 } from 'lucide-react';
 
 export default function TryItYourself(): ReactElement {
   const [script, setScript] = useState('');
   const [isPlaying, setIsPlaying] = useState(false);
-  const [speed, setSpeed] = useState(0);
+  const [speed, setSpeed] = useState(2);
   const [fontSize, setFontSize] = useState(32);
   const [fontFamily, setFontFamily] = useState('Arial');
   const [textColor, setTextColor] = useState('#FFFFFF');
@@ -152,7 +152,7 @@ export default function TryItYourself(): ReactElement {
                 className="flex items-center justify-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
                 aria-label="Clear all teleprompter content"
               >
-                <Type aria-hidden="true" />
+                <Trash2 aria-hidden="true" />
               </button>
             </div>
           </div>
