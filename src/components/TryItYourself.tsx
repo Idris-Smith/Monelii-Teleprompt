@@ -105,8 +105,8 @@ export default function TryItYourself(): ReactElement {
               <input
                 id="speed-slider"
                 type="range"
-                min="-10"
-                max="10"
+                min="-3"
+                max="3"
                 step="0.5"
                 value={speed}
                 onChange={(e) => setSpeed(Number(e.target.value))}
