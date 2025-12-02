@@ -12,10 +12,10 @@ export default function Hero(): ReactElement {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" itemScope itemType="https://schema.org/Organization">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6" itemProp="name">
-          Professional Teleprompter Systems in South Africa
+          Professional Teleprompter Services in South Africa
         </h1>
         <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto" itemProp="description">
-          Premium teleprompter rental services for video production, speeches, and events. Expert operators and cutting-edge equipment for flawless presentations.
+          Complete teleprompter services with skilled operators for video production, speeches, and events. We provide the equipment, setup, and expert operation for flawless presentations.
         </p>
         <button
           onClick={scrollToSystems}
