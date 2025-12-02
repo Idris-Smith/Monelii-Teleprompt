@@ -45,7 +45,7 @@ const systems = [
   {
     title: 'Presidential System',
     description: 'Dual glass panels for a polished and professional speaking setup.',
-    imageUrl: '/WhatsApp Image 2025-11-24 at 15.51.40_f0904213.jpg',
+    imageUrl: '/WhatsApp Image 2025-11-24 at 15.51.40_f0904213 copy.jpg',
     bestFor: 'Best for formal stage events',
     faqs: [
       {
@@ -65,7 +65,7 @@ const systems = [
   {
     title: '40-Inch System',
     description: 'Large screen teleprompter ideal for big audiences and presentations.',
-    imageUrl: 'https://i.ibb.co/3BV67xX/IMG20240827094253.jpg',
+    imageUrl: '/IMG20240829075507.jpg',
     bestFor: 'Presentations delivered into camera from a longer distance',
     faqs: [
       {
