@@ -63,7 +63,7 @@ export default function Footer(): ReactElement {
 
         <div className="mt-12 pt-8 border-t border-gray-800">
           <p className="text-center text-gray-400">
-            © {new Date().getFullYear()} Teleprompter South Africa. All rights reserved. Professional teleprompter rental services.
+            © {new Date().getFullYear()} Teleprompter South Africa. All rights reserved. Professional teleprompter services with expert operators.
           </p>
         </div>
       </div>
